@@ -1,8 +1,6 @@
 @extends('layouts.site.main')
 @section('content')
     <div class="hero">
-
-
         <div class="hero-slide">
             <div class="img overlay" style="background-image: url('assets/site/images/hero_bg_3.jpg')"></div>
             <div class="img overlay" style="background-image: url('assets/site/images/hero_bg_2.jpg')"></div>
@@ -37,7 +35,7 @@
                 <div class="col-12">
                     <div class="property-slider-wrap">
                         <div class="property-slider">
-                            @foreach($products as $product)
+                            @forelse($products as $product)
                                 <div class="property-item">
                                     <div class="card" style="width: 25rem;">
                                         <img src="{{asset('').'storage/'.$product->image}}" alt="Image"
@@ -59,7 +57,13 @@
                                         </div>
                                     </div>
                                 </div> <!-- .item -->
-                            @endforeach
+                            @empty
+                                <div class="property-item">
+                                    <div class="card text-center">
+                                        <p>No Products </p>
+                                    </div>
+                                </div>
+                            @endforelse
                         </div>
                         <div id="property-nav" class="controls" tabindex="0" aria-label="Carousel Navigation">
                             <span class="prev" data-controls="prev" aria-controls="property" tabindex="-1">Prev</span>
@@ -185,9 +189,5 @@
             </div>
         </div>
     </div>
-    @include('includes.popups')
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
-            integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
-    @include('includes.script')
 @endsection
 

@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\Site\CartController;
+use App\Http\Controllers\Site\OrdersController;
 use App\Http\Controllers\Site\PageController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -22,7 +24,12 @@ use Illuminate\Support\Facades\Route;
 //});
 Route::get('/',[PageController::class,'index']);
 Route::get('view/product/{id}',[PageController::class,'viewProduct']);
-
+Route::post('add/cart',[PageController::class,'addToCart']);
+Route::get('/orders',[OrdersController::class,'index']);
+Route::post('order/store', [OrdersController::class, 'store']);
+Route::get('/track', [OrdersController::class, 'track']);
+Route::get('/cart_items',[CartController::class,'index']);
+Route::get('/getCartItems',[CartController::class,'getCartItems']);
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
@@ -40,3 +47,4 @@ Route::group(['prefix'=>'products'],function (){
     Route::post('/store',[ProductController::class,'store']);
     Route::post('/update',[ProductController::class,'update']);
 });
+Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');

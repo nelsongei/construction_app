@@ -41,8 +41,8 @@
                            readonly class="product_name"></h4>
                 <h5><label for="price">Price</label>
                     <input type="text" style="outline:none;border:none;background: #fff"
-                           class="menu_item_price form-control mb-2" name="price" readonly></h5>
-                <input type="hidden" class="menu_item_id" name="product_id">
+                           class="product_price form-control mb-2" name="price" readonly></h5>
+                <input type="hidden" class="product_id" name="product_id">
                 <div class="quantity buttons_added mt-2" style="float: right">
                     <input type="button" value="-" class="minus">
                     <input type="number" id="input-text" value="1" step="1" min="1" max="" name="quantity" title="Qty"
@@ -62,44 +62,6 @@
     </div>
 </div>
 <!--Reference Modal-->
-<div class="modal fade" id="reference_modal" tabindex="-1" aria-labelledby="reference_modalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h1 class="modal-title fs-5" id="reference_modal_heading">Refer To User</h1>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <button class="button" id="generate_link">
-                    Generate Link
-                </button>
-                <div id="generated_link_features">
-                    <input type="text" class="form-control mt-2" id="hashed_link" style="border:none" readonly>
-                    <i id="copy_to_clipboard" class="fa fa-clipboard"
-                       style="float: right;font-size: 30px;cursor: pointer;top: -44px;position:relative;"></i>
-                    <a id="share_with_email"
-                       style="float: right;top: -36px;position: relative;margin-right: 10px;cursor: pointer">Share with
-                        email</a>
-                </div>
-                <div id="share_email">
-                    <input type="hidden" id="hashed_link_for_mail" class="form-control">
-                    <div class="form-group" id="">
-                        <label>To</label>
-                        <input type="email" id="email" class="form-control">
-                    </div>
-                    <div class="form-group">
-                    </div>
-                    <button class="button mt-2" id="send_mail_btn">
-                        Send Email
-                    </button>
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default btn-sm" data-bs-dismiss="modal">Close</button>
-            </div>
-        </div>
-    </div>
-</div>
 <div class="modal fade" id="checkout-modal">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
@@ -162,37 +124,6 @@
                                         <td class="text-right sub_total">
                                         </td>
                                     </tr>
-                                    @if(auth()->user())
-                                        <tr>
-                                            <td colspan="2">
-                                                <span class="text-muted">
-                                                    Use Points
-                                                </span>
-                                                <div class="row">
-                                                    <div class="col-sm-6 float-left">
-                                                        <div class="checkbox-wrapper-22">
-                                                            <label class="switch" for="use_points">
-                                                                <input type="checkbox" name="use_points" id="use_points"/>
-                                                                <div class="slider round"></div>
-                                                            </label>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-sm-4" id="point_input" style="display: none">
-                                                        <div class="quantity buttons_added mt-2" style="float: right">
-                                                            <input type="button" value="-" class="minus">
-                                                            <input type="number" id="input_text_point"
-                                                                   value="{{auth()->user()->points}}" step="1" min="1"
-                                                                   max="{{auth()->user()->points}}"
-                                                                   name="input_text_point" title="Qty"
-                                                                   class="input-text qty text" size="4" pattern=""
-                                                                   inputmode="">
-                                                            <input type="button" value="+" class="plus">
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                    @endif
                                     <tr>
                                         <td>
                                             <span class="text-muted">

@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\Request;
 
 class LoginController extends Controller
 {
@@ -26,6 +28,29 @@ class LoginController extends Controller
      * @var string
      */
     protected $redirectTo = '/home';
+
+    public function login(Request $request)
+    {
+        $credentials = request()->only('email', 'password');
+        if(Auth::attempt($credentials))
+        {
+            if(auth()->user()->user_type_id===1)
+            {
+                return redirect('/home');
+            }
+
+            elseif(auth()->user()->user_type_id===2){
+                return redirect('/vendors_dashboard');
+            }
+            else{
+                return redirect('/client_dashboard');
+            }
+        }
+        else{
+            Alert::warning('Failed','Failed To Log In. Wrong Email or Password');
+            return redirect('/login');
+        }
+    }
 
     /**
      * Create a new controller instance.

@@ -1,16 +1,4 @@
 <script>
-    document.getElementById('use_points').addEventListener('click',function (e) {
-        if(this.checked)
-        {
-            console.log('Hello');
-            $("#point_input").show();
-        }
-        else{
-            $("#point_input").hide()
-        }
-    })
-</script>
-<script>
     $.ajaxSetup({
         headers: {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -45,14 +33,14 @@
             var product = $(this).data('id');
             $.ajax({
                 type: "GET",
-                url: "/view/product/"+product,
+                url: "/view/product/" + product,
                 data: "",
                 success: function (response) {
                     $("#buy_now").modal('show')
                     $("#buy_now_menu_modal_heading").html("Product Details");
                     $(".product_name").val(response.name)
-                    $(".menu_item_price").val(response.price)
-                    $(".menu_item_id").val(response.id)
+                    $(".product_price").val(response.price)
+                    $(".product_id").val(response.id)
                 }
             })
         })
@@ -62,7 +50,7 @@
     $(document).ready(function () {
         $(".plus").click(function () {
             var qty = Number($("#input-text").val()) + 1
-            var total = $(".menu_item_price").val() * qty;
+            var total = $(".product_price").val() * qty;
             console.log(total);
             $("#total").val(total);
         })
@@ -118,22 +106,21 @@
     $(document).ready(function () {
         $("#purchase_menu_item").click(function () {
             var quantity = $("#input-text").val();
-            var menu_item_id = $('.menu_item_id').val();
+            var product_id = $('.product_id').val();
             var sub_total = $('.menu_item_total').val();
-            var price = $('.menu_item_price').val();
+            var price = $('.product_price').val();
             $.ajax({
                 type: "POST",
-                url: "{{url('site.single.menu.item.add.to.cart')}}",
+                url: "{{url('add/cart')}}",
                 data: {
                     quantity,
-                    menu_item_id,
+                    product_id,
                     sub_total,
-                    price
+                    price,
                 },
                 success: function (response) {
                     get_cart_item(response);
-                    if(response.status==='success')
-                    {
+                    if (response.status === 'success') {
                         $("#buy_now").modal('hide');
                         $("#input-text").val(1);
                         $('.menu_item_total').val("")
@@ -164,8 +151,8 @@
                 `;
             });
             $('#cart_item').html(cart_items);
-            $("#sub_total").text('Ksh. '+new Intl.NumberFormat('en-US').format(response.total));
-            $("#grand_total").text('Ksh. '+new Intl.NumberFormat('en-US').format(response.total));
+            $("#sub_total").text('Ksh. ' + new Intl.NumberFormat('en-US').format(response.total));
+            $("#grand_total").text('Ksh. ' + new Intl.NumberFormat('en-US').format(response.total));
             $("#checkout").text(new Intl.NumberFormat('en-US').format(response.total));
         }
     })
@@ -253,7 +240,7 @@
     $(document).ready(function () {
         $.ajax({
             type: "GET",
-            url: "{{ url('site.single.menu.item.get.cart.items') }}",
+            url: "{{ url('getCartItems') }}",
             success: function (response) {
                 if (response.carts.length === 0) {
                     $('#cart_item').html('<tr class="text-center text-success"><td colspan="5">Your cart is empty.</td></tr>');
@@ -291,7 +278,7 @@
             $("#checkout-modal").modal('show');
             $.ajax({
                 type: "GET",
-                url: "{{ url('site.single.menu.item.get.cart.items') }}",
+                url: "{{ url('getCartItems') }}",
                 success: function (response) {
                     if (response.carts.length === 0) {
                         $('.cart_item').html('<tr class="text-center text-success"><td colspan="5">Your cart is empty.</td></tr>');

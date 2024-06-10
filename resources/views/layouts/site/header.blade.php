@@ -8,6 +8,7 @@
 
     <meta name="description" content=""/>
     <meta name="keywords" content="bootstrap, bootstrap5"/>
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -49,7 +50,7 @@
                             @endforeach
                         </ul>
                     </li>
-                    <li><a href="#">Cart</a></li>
+                    <li><a href="{{url('cart_items')}}">Cart</a></li>
                     <li><a href="#">About</a></li>
                     <li><a href="#">Contact Us</a></li>
                 </ul>
