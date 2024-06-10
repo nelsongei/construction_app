@@ -21,7 +21,7 @@
     <link rel="stylesheet" href="{{asset('assets/site/css/aos.css')}}">
     <link rel="stylesheet" href="{{asset('assets/site/css/style.css')}}">
 
-    <title>Property &mdash; Free Bootstrap 5 Website Template by Untree.co</title>
+    <title>Construction Management System</title>
 </head>
 <body>
 
@@ -44,8 +44,9 @@
                     <li class="has-children">
                         <a href="#">Categories</a>
                         <ul class="dropdown">
-                            <li><a href="#">Buy Property</a></li>
-                            <li><a href="#">Sell Property</a></li>
+                            @foreach($categories as $category)
+                                <li><a href="{{url('/')}}">{{$category->name}}</a></li>
+                            @endforeach
                         </ul>
                     </li>
                     <li><a href="#">Cart</a></li>

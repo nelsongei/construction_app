@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\ProductController;
+use App\Http\Controllers\Site\PageController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -15,9 +17,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+//Route::get('/', function () {
+//   // return view('welcome');
+//});
+Route::get('/',[PageController::class,'index']);
 
 Auth::routes();
 
@@ -29,4 +32,9 @@ Route::group(['prefix'=>'categories'],function (){
     Route::post('/store',[CategoryController::class,'store']);
     Route::post('/update',[CategoryController::class,'update']);
     Route::get('/delete/{id}',[CategoryController::class,'delete']);
+});
+//Products
+Route::group(['prefix'=>'products'],function (){
+    Route::get('/',[ProductController::class,'index']);
+    Route::post('/store',[ProductController::class,'store']);
 });

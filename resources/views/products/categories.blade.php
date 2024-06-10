@@ -25,7 +25,7 @@
                             </div>
                         @endif
                         @if ($errors->any())
-                            <div class="alert alert-danger text-white mb-1">
+                            <div class="alert alert-black text-white mb-3">
                                 <ul>
                                     @foreach ($errors->all() as $error)
                                         <li>{{ $error }}</li>

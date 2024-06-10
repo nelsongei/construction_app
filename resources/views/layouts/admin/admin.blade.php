@@ -96,7 +96,7 @@
                         </a>
                     </li>
                     <li class="">
-                        <a class="sidenav-item-link" href="{{url('admin.products.index')}}">
+                        <a class="sidenav-item-link" href="{{url('products')}}">
                             <i class="mdi mdi-menu"></i>
                             <span class="nav-text">Products</span>
                         </a>
