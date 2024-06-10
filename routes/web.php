@@ -5,6 +5,7 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\Site\CartController;
 use App\Http\Controllers\Site\OrdersController;
 use App\Http\Controllers\Site\PageController;
+use App\Http\Controllers\UsersController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -46,5 +47,12 @@ Route::group(['prefix'=>'products'],function (){
     Route::get('/',[ProductController::class,'index']);
     Route::post('/store',[ProductController::class,'store']);
     Route::post('/update',[ProductController::class,'update']);
+});
+
+//Users
+Route::group(['prefix'=>'users'],function (){
+    Route::get('/',[UsersController::class,'index']);
+    Route::get('/vendors',[UsersController::class,'vendors']);
+    Route::get('/clients',[UsersController::class,'clients']);
 });
 Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');

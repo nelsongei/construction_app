@@ -123,19 +123,19 @@
                         </ul>
                     </li>
                     <li class="">
-                        <a class="sidenav-item-link" href="{{url('admin.points.index')}}">
+                        <a class="sidenav-item-link" href="{{url('users/vendors')}}">
                             <i class="mdi mdi-file"></i>
                             <span class="nav-text">Vendors</span>
                         </a>
                     </li>
                     <li class="">
-                        <a class="sidenav-item-link" href="{{url('admin.customers.index')}}">
+                        <a class="sidenav-item-link" href="{{url('users/clients')}}">
                             <i class="mdi mdi-account-circle-outline"></i>
                             <span class="nav-text">Customers</span>
                         </a>
                     </li>
                     <li class="">
-                        <a class="sidenav-item-link" href="{{url('admin.users.index')}}">
+                        <a class="sidenav-item-link" href="{{url('users')}}">
                             <i class="mdi mdi-account"></i>
                             <span class="nav-text">System Admins</span>
                         </a>
