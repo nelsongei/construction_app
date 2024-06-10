@@ -69,5 +69,6 @@ Route::group(['prefix'=>'vendors_dashboard'],function (){
 Route::group(['prefix'=>'client_dashboard'],function (){
     Route::get('/',[ClientDashboardController::class,'index']);
     Route::get('/products',[ClientDashboardController::class,'products']);
+    Route::get('/orders',[ClientDashboardController::class,'orders']);
 });
 Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
