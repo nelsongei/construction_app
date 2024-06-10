@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\client\ClientDashboardController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\Site\CartController;
 use App\Http\Controllers\Site\OrdersController;
@@ -63,5 +64,10 @@ Route::group(['prefix'=>'users'],function (){
 Route::group(['prefix'=>'vendors_dashboard'],function (){
     Route::get('/',[VendorDashbaordController::class,'index']);
     Route::get('/products',[VendorDashbaordController::class,'products']);
+});
+//Client Dashboard
+Route::group(['prefix'=>'client_dashboard'],function (){
+    Route::get('/',[ClientDashboardController::class,'index']);
+    Route::get('/products',[ClientDashboardController::class,'products']);
 });
 Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');

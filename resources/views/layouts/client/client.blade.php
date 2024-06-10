@@ -84,37 +84,22 @@
                 <!-- sidebar menu -->
                 <ul class="nav sidebar-inner" id="sidebar-menu">
                     <li class="active expand">
-                        <a class="sidenav-item-link" href="{{url('vendors_dashboard')}}">
+                        <a class="sidenav-item-link" href="{{url('client_dashboard')}}">
                             <i class="mdi mdi-view-dashboard-outline"></i>
                             <span class="nav-text">Dashboard</span>
                         </a>
                     </li>
                     <li class="">
-                        <a class="sidenav-item-link" href="{{url('vendors_dashboard/products')}}">
+                        <a class="sidenav-item-link" href="{{url('client_dashboard/products')}}">
                             <i class="mdi mdi-menu"></i>
                             <span class="nav-text">Products</span>
                         </a>
                     </li>
-                    <li class="has-sub expand">
-                        <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse"
-                           data-target="#sales" aria-expanded="false" aria-controls="sales">
+                    <li class="">
+                        <a class="sidenav-item-link" href="{{url('client_dashboard/orders')}}">
                             <i class="mdi mdi-chart-areaspline"></i>
-                            <span class="nav-text">Sales</span> <b class="caret"></b>
+                            <span class="nav-text">Orders</span>
                         </a>
-                        <ul class="collapse" id="sales" data-parent="#sidebar-menu" style="">
-                            <div class="sub-menu">
-                                <li class="">
-                                    <a class="sidenav-item-link" href="{{url('admin.orders.index')}}">
-                                        <span class="nav-text">Orders</span>
-                                    </a>
-                                </li>
-                                <li class="">
-                                    <a class="sidenav-item-link" href="{{url('admin.reservations.index')}}">
-                                        <span class="nav-text">Reservations</span>
-                                    </a>
-                                </li>
-                            </div>
-                        </ul>
                     </li>
                     <li class="">
                         <a class="sidenav-item-link" href="{{url('logout')}}">
@@ -126,8 +111,6 @@
             </div>
         </div>
     </aside>
-
-
     <!-- ====================================
   ——— PAGE WRAPPER
   ===================================== -->
@@ -161,14 +144,16 @@
                         <li class="dropdown user-menu">
                             <button href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
                                 <img src="{{auth()->user()->profile}}" class="user-image" alt="User Image"/>
-                                <span class="d-none d-lg-inline-block">{{auth()->user()->first_name.' '.auth()->user()->last_name}}</span>
+                                <span
+                                    class="d-none d-lg-inline-block">{{auth()->user()->first_name.' '.auth()->user()->last_name}}</span>
                             </button>
                             <ul class="dropdown-menu dropdown-menu-right">
                                 <!-- User image -->
                                 <li class="dropdown-header">
                                     <img src="{{auth()->user()->profile}}" class="img-circle" alt="User Image"/>
                                     <div class="d-inline-block">
-                                        {{auth()->user()->first_name.' '.auth()->user()->last_name}} <small class="pt-1">{{auth()->user()->email}}</small>
+                                        {{auth()->user()->first_name.' '.auth()->user()->last_name}} <small
+                                            class="pt-1">{{auth()->user()->email}}</small>
                                     </div>
                                 </li>
                                 <li>
