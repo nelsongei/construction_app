@@ -38,37 +38,39 @@ Route::get('/cart_items',[CartController::class,'index']);
 Route::get('/getCartItems',[CartController::class,'getCartItems']);
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::middleware(['auth', 'check.user.type'])->group(function () {
+    Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 //Categories
-Route::group(['prefix'=>'categories'],function (){
-    Route::get('/',[CategoryController::class,'index']);
-    Route::post('/store',[CategoryController::class,'store']);
-    Route::post('/update',[CategoryController::class,'update']);
-    Route::get('/delete/{id}',[CategoryController::class,'delete']);
-});
+    Route::group(['prefix'=>'categories'],function (){
+        Route::get('/',[CategoryController::class,'index']);
+        Route::post('/store',[CategoryController::class,'store']);
+        Route::post('/update',[CategoryController::class,'update']);
+        Route::get('/delete/{id}',[CategoryController::class,'delete']);
+    });
 //Products
-Route::group(['prefix'=>'products'],function (){
-    Route::get('/',[ProductController::class,'index']);
-    Route::post('/store',[ProductController::class,'store']);
-    Route::post('/update',[ProductController::class,'update']);
-});
+    Route::group(['prefix'=>'products'],function (){
+        Route::get('/',[ProductController::class,'index']);
+        Route::post('/store',[ProductController::class,'store']);
+        Route::post('/update',[ProductController::class,'update']);
+    });
 
 //Users
-Route::group(['prefix'=>'users'],function (){
-    Route::get('/',[UsersController::class,'index']);
-    Route::get('/vendors',[UsersController::class,'vendors']);
-    Route::get('/clients',[UsersController::class,'clients']);
-});
+    Route::group(['prefix'=>'users'],function (){
+        Route::get('/',[UsersController::class,'index']);
+        Route::get('/vendors',[UsersController::class,'vendors']);
+        Route::get('/clients',[UsersController::class,'clients']);
+    });
 //Vendor Dashbaord
-Route::group(['prefix'=>'vendors_dashboard'],function (){
-    Route::get('/',[VendorDashbaordController::class,'index']);
-    Route::get('/products',[VendorDashbaordController::class,'products']);
-});
+    Route::group(['prefix'=>'vendors_dashboard'],function (){
+        Route::get('/',[VendorDashbaordController::class,'index']);
+        Route::get('/products',[VendorDashbaordController::class,'products']);
+    });
 //Client Dashboard
-Route::group(['prefix'=>'client_dashboard'],function (){
-    Route::get('/',[ClientDashboardController::class,'index']);
-    Route::get('/products',[ClientDashboardController::class,'products']);
-    Route::get('/orders',[ClientDashboardController::class,'orders']);
+    Route::group(['prefix'=>'client_dashboard'],function (){
+        Route::get('/',[ClientDashboardController::class,'index']);
+        Route::get('/products',[ClientDashboardController::class,'products']);
+        Route::get('/orders',[ClientDashboardController::class,'orders']);
+    });
+    Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
 });
-Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');

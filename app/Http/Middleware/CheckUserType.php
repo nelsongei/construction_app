@@ -15,6 +15,21 @@ class CheckUserType
      */
     public function handle(Request $request, Closure $next): Response
     {
+       if (auth()->check()) {
+            $userType = auth()->user()->user_type_id;
+            if ($userType===1)
+            {
+                redirect('/home');
+            }
+            elseif ($userType===2)
+            {
+                redirect('/vendors_dashboard');
+            }
+            elseif($userType===3)
+            {
+                redirect('client_dashboard');
+            }
+        }
         return $next($request);
     }
 }
