@@ -76,4 +76,20 @@ class OrdersController extends Controller
         $orders = Order::where('user_id',Auth::user()->id)->orderBy('created_at')->get();
         return view('site.cart.track',compact('orders','categories'));
     }
+    public function allOrders()
+    {
+        $orders = Order::orderBy('id')->get();
+        return response()->json(['orders'=>$orders]);
+    }
+    public function vendorData($data)
+    {
+        $vendor = User::where('user_name',$data)->first();
+        $products = Product::where('user_id',$vendor)->get();
+        return response()->json(['items'=>$products]);
+    }
+    public function orderStatus()
+    {
+        $orders = Order::where('status_id',1)->get();
+        return response()->json(['orders'=>$orders]);
+    }
 }

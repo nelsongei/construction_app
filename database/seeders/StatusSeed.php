@@ -16,7 +16,7 @@ class StatusSeed extends Seeder
         //
         $statuses = [
             [
-                'name'=>'Received',
+                'name'=>'Booked',
                 'color'=>'#686663',
                 'notify_customer'=>false,
             ],

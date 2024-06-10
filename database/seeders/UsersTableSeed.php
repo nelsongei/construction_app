@@ -38,6 +38,7 @@ class UsersTableSeed extends Seeder
             [
                 'first_name'=>'Nelson',
                 'last_name'=>'Sammy',
+                'user_name'=>'neslon_sammy',
                 'email'=>'nelson@cms.com',
                 'id_no'=>'32367696',
                 'phone'=>'254719405904',
@@ -49,6 +50,7 @@ class UsersTableSeed extends Seeder
             [
                 'first_name'=>'Jane',
                 'last_name'=>'Doe',
+                'user_name'=>'jane_doe',
                 'email'=>'jane@cms.com',
                 'id_no'=>'31367696',
                 'phone'=>'254712345678',
@@ -60,6 +62,7 @@ class UsersTableSeed extends Seeder
             [
                 'first_name'=>'John',
                 'last_name'=>'Doe',
+                'user_name'=>'john_doe',
                 'email'=>'john@cms.com',
                 'id_no'=>'12345678',
                 'phone'=>'2547123456781',

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Site\OrdersController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -14,6 +15,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-});
+Route::get('bookings/all',[OrdersController::class,'allOrders']);
+Route::get('vendor/items/{name}',[OrdersController::class,'vendorData']);
+Route::get('bookings/orderstatus/ordered',[OrdersController::class,'orderStatus']);
