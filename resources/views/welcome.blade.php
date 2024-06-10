@@ -22,34 +22,24 @@
             </div>
         </div>
     </div>
-
-
     <div class="section">
         <div class="container">
             <div class="row mb-5 align-items-center">
                 <div class="col-lg-6">
-                    <h2 class="font-weight-bold text-primary heading">Popular Properties</h2>
+                    <h2 class="font-weight-bold text-primary heading">Products</h2>
                 </div>
                 <div class="col-lg-6 text-lg-end">
-                    <p><a href="#" target="_blank" class="btn btn-primary text-white py-3 px-4">View all properties</a></p>
+                    <p><a href="#" target="_blank" class="btn btn-primary text-white py-3 px-4">View all products</a></p>
                 </div>
             </div>
             <div class="row">
-
                 <div class="col-12">
-
-
                     <div class="property-slider-wrap">
-
-
                         <div class="property-slider">
-
                             <div class="property-item">
-
                                 <a href="property-single.html" class="img">
                                     <img src="{{asset('assets/site/images/img_1.jpg')}}" alt="Image" class="img-fluid">
                                 </a>
-
                                 <div class="property-content">
                                     <div class="price mb-2"><span>$1,291,000</span></div>
                                     <div>
@@ -311,7 +301,6 @@
             </div>
         </div>
     </div>
-
     <section class="features-1">
         <div class="container">
             <div class="row">
@@ -460,8 +449,6 @@
             </div>
         </div>
     </div>
-
-
     <div class="section section-4 bg-light">
         <div class="container">
             <div class="row justify-content-center  text-center mb-5">
@@ -540,7 +527,6 @@
             </div>
         </div>
     </div>
-
     <div class="section">
         <div class="row justify-content-center footer-cta" data-aos="fade-up">
             <div class="col-lg-7 mx-auto text-center">
@@ -550,7 +536,6 @@
             </div> <!-- /.col-lg-7 -->
         </div> <!-- /.row -->
     </div>
-
     <div class="section section-5 bg-light">
         <div class="container">
             <div class="row justify-content-center  text-center mb-5">
