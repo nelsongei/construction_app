@@ -16,4 +16,9 @@ class PageController extends Controller
         $products = Product::orderBy('id')->get();
         return view('welcome',compact('categories','products'));
     }
+    public function viewProduct($id)
+    {
+        $product = Product::findOrFail($id);
+        return response($product,201);
+    }
 }

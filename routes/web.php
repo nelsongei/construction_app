@@ -21,6 +21,7 @@ use Illuminate\Support\Facades\Route;
 //   // return view('welcome');
 //});
 Route::get('/',[PageController::class,'index']);
+Route::get('view/product/{id}',[PageController::class,'viewProduct']);
 
 Auth::routes();
 
@@ -37,4 +38,5 @@ Route::group(['prefix'=>'categories'],function (){
 Route::group(['prefix'=>'products'],function (){
     Route::get('/',[ProductController::class,'index']);
     Route::post('/store',[ProductController::class,'store']);
+    Route::post('/update',[ProductController::class,'update']);
 });

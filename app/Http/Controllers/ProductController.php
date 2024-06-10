@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\Product\AddProductRequest;
+use App\Http\Requests\Product\UpdateProductRequest;
 use App\Models\Category;
 use App\Models\Product;
 use Illuminate\Http\Request;
@@ -47,4 +48,30 @@ class ProductController extends Controller
         $request->session()->flash('alert-success', 'Product Successfully Saved');
         return back();
     }
+    public function update(UpdateProductRequest $request)
+    {
+        try {
+            DB::beginTransaction();
+            $product = Product::findOrFail($request->id);
+            $product->name = $request->name;
+            $product->description = $request->description;
+            $product->price = $request->price;
+            $product->category_id = $request->category_id;
+            $product->user_id = $request->user_id;
+
+            if ($request->hasFile('image')) {
+                $file_name = $request->file('image');
+                $path = $file_name->store('product/images', 'public');
+                $product->image = $path;
+            }
+            $product->save();
+            DB::commit();
+        } catch (\Exception $e) {
+            DB::rollBack();
+            return back()->withErrors($e->getMessage());
+        }
+        $request->session()->flash('alert-success', 'Product Successfully Updated');
+        return redirect()->back();
+    }
+
 }

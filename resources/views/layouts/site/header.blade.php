@@ -13,15 +13,15 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+    <link rel="stylesheet" href="{{ asset('assets/site/fonts/flaticon/font/flaticon.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/site/css/tiny-slider.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/site/css/aos.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/site/css/controls.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/site/css/style.css') }}">
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
-    <link rel="stylesheet" href="{{asset('assets/site/fonts/icomoon/style.css')}}">
-    <link rel="stylesheet" href="{{asset('assets/site/fonts/flaticon/font/flaticon.css')}}">
-
-    <link rel="stylesheet" href="{{asset('assets/site/css/tiny-slider.css')}}">
-    <link rel="stylesheet" href="{{asset('assets/site/css/aos.css')}}">
-    <link rel="stylesheet" href="{{asset('assets/site/css/style.css')}}">
-
-    <title>Construction Management System</title>
+    <title>@yield('title','Construction Management System')</title>
 </head>
 <body>
 

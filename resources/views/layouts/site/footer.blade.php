@@ -78,11 +78,12 @@
 </div>
 
 
-<script src="{{asset('assets/site/js/bootstrap.bundle.min.js')}}"></script>
-<script src="{{asset('assets/site/js/tiny-slider.js')}}"></script>
-<script src="{{asset('assets/site/js/aos.js')}}"></script>
-<script src="{{asset('assets/site/js/navbar.js')}}"></script>
-<script src="{{asset('assets/site/js/counter.js')}}"></script>
-<script src="{{asset('assets/site/js/custom.js')}}"></script>
+<script src="{{ asset('assets/site/js/bootstrap.bundle.min.js') }}"></script>
+<script src="{{ asset('assets/site/js/tiny-slider.js') }}"></script>
+<script src="{{ asset('assets/site/js/controls.js') }}"></script>
+<script src="{{ asset('assets/site/js/aos.js') }}"></script>
+<script src="{{ asset('assets/site/js/navbar.js') }}"></script>
+<script src="{{ asset('assets/site/js/counter.js') }}"></script>
+<script src="{{ asset('assets/site/js/custom.js') }}"></script>
 </body>
 </html>

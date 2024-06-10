@@ -73,6 +73,52 @@
                                             </div>
                                         </td>
                                     </tr>
+                                    <div class="modal fade" id="updateModal{{$product->id}}">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <form action="{{url('/products/update')}}" method="post" enctype="multipart/form-data">
+                                                    @csrf
+                                                    <div class="modal-body">
+                                                        <input type="hidden" value="{{auth()->user()->id}}" name="user_id">
+                                                        <input type="hidden" name="id" value="{{$product->id}}">
+                                                        <div class="form-group">
+                                                            <label for="">Name</label>
+                                                            <input type="text" name="name" class="form-control" value="{{$product->name}}">
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label for="">Category</label>
+                                                            <select name="category_id" class="form-control">
+                                                                @foreach($categories as $category)
+                                                                    <option value="{{$category->id}}">{{$category->name}}</option>
+                                                                @endforeach
+                                                            </select>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label for="">Price</label>
+                                                            <input type="number" min="1" name="price" class="form-control" value="{{$product->price}}">
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label for="">Image</label>
+                                                            <input type="file" name="image" class="form-control">
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label for="">Description</label>
+                                                            <textarea name="description" class="form-control">{!! $product->description !!}</textarea>
+                                                        </div>
+
+                                                    </div>
+                                                    <div class="modal-footer justify-content-center">
+                                                        <button class="btn btn-sm btn-outline-warning" data-dismiss="modal">
+                                                            Not Now
+                                                        </button>
+                                                        <button class="btn btn-sm btn-outline-success">
+                                                            Update Product
+                                                        </button>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
                                 @empty
                                     <tr class="text-center">
                                         <td colspan="7">
