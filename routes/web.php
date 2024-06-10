@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminOrderController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\client\ClientDashboardController;
 use App\Http\Controllers\ProductController;
@@ -61,6 +62,7 @@ Route::middleware(['auth', 'check.user.type'])->group(function () {
         Route::get('/vendors',[UsersController::class,'vendors']);
         Route::get('/clients',[UsersController::class,'clients']);
     });
+    Route::get('/admin/orders',[AdminOrderController::class,'orders']);
 //Vendor Dashbaord
     Route::group(['prefix'=>'vendors_dashboard'],function (){
         Route::get('/',[VendorDashbaordController::class,'index']);

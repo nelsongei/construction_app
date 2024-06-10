@@ -110,13 +110,8 @@
                         <ul class="collapse" id="sales" data-parent="#sidebar-menu" style="">
                             <div class="sub-menu">
                                 <li class="">
-                                    <a class="sidenav-item-link" href="{{url('admin.orders.index')}}">
+                                    <a class="sidenav-item-link" href="{{url('admin/orders')}}">
                                         <span class="nav-text">Orders</span>
-                                    </a>
-                                </li>
-                                <li class="">
-                                    <a class="sidenav-item-link" href="{{url('admin.reservations.index')}}">
-                                        <span class="nav-text">Reservations</span>
                                     </a>
                                 </li>
                             </div>
