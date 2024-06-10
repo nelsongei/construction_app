@@ -5,7 +5,9 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\Site\CartController;
 use App\Http\Controllers\Site\OrdersController;
 use App\Http\Controllers\Site\PageController;
+use App\Http\Controllers\Site\RegisterController;
 use App\Http\Controllers\UsersController;
+use App\Http\Controllers\vendor\VendorDashbaordController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -23,6 +25,8 @@ use Illuminate\Support\Facades\Route;
 //Route::get('/', function () {
 //   // return view('welcome');
 //});
+Route::get('registration',[RegisterController::class,'index']);
+Route::post('client/register',[RegisterController::class,'register']);
 Route::get('/',[PageController::class,'index']);
 Route::get('view/product/{id}',[PageController::class,'viewProduct']);
 Route::post('add/cart',[PageController::class,'addToCart']);
@@ -54,5 +58,10 @@ Route::group(['prefix'=>'users'],function (){
     Route::get('/',[UsersController::class,'index']);
     Route::get('/vendors',[UsersController::class,'vendors']);
     Route::get('/clients',[UsersController::class,'clients']);
+});
+//Vendor Dashbaord
+Route::group(['prefix'=>'vendors_dashboard'],function (){
+    Route::get('/',[VendorDashbaordController::class,'index']);
+    Route::get('/products',[VendorDashbaordController::class,'products']);
 });
 Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');

@@ -51,8 +51,7 @@
                         </ul>
                     </li>
                     <li><a href="{{url('cart_items')}}">Cart</a></li>
-                    <li><a href="#">About</a></li>
-                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="{{url('/registration')}}">Register</a></li>
                 </ul>
                 <a href="#"
                    class="burger light me-auto float-end mt-1 site-menu-toggle js-menu-toggle d-inline-block d-lg-none"
