@@ -39,7 +39,7 @@
                                         <td>{{$order->order_no}}</td>
                                         <td>{{$order->order_type}}</td>
                                         <td>{{$order->total_price}}</td>
-                                        <td>{{$order->status}}</td>
+                                        <td style="color: {{$order->status_name->color}}">{{$order->status_name->name}}</td>
                                     </tr>
                                 @empty
                                     <tr class="text-center">

@@ -60,6 +60,9 @@ Route::middleware(['auth', 'check.user.type'])->group(function () {
     Route::group(['prefix'=>'users'],function (){
         Route::get('/',[UsersController::class,'index']);
         Route::get('/vendors',[UsersController::class,'vendors']);
+        Route::post('/vendors/store',[UsersController::class,'vendorStore']);
+        Route::post('/vendors/update',[UsersController::class,'updateVendor']);
+        Route::get('/vendors/delete/{id}',[UsersController::class,'deleteVendor']);
         Route::get('/clients',[UsersController::class,'clients']);
     });
     Route::get('/admin/orders',[AdminOrderController::class,'orders']);
